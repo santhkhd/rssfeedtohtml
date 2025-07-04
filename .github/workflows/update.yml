@@ -1,0 +1,32 @@
+name: Update Kerala Lottery RSS HTML
+
+on:
+  schedule:
+    - cron: '30 9 * * *'  # 3:00 PM IST daily
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install rss-parser
+
+      - name: Generate index.html from RSS
+        run: node rssfeedtohtml/generate.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add rssfeedtohtml/index.html
+          git commit -m "Update index.html with latest RSS feed" || echo "No changes to commit"
+          git push 
