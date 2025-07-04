@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponkudam Lottery Home</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #e9edf5;
+      margin: 0;
+      color: #222;
+    }
+    .header {
+      background: linear-gradient(90deg, #1a2980 0%, #2575fc 100%);
+      color: #fff;
+      padding: 18px 0 10px 0;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(30,60,120,0.08);
+    }
+    .welcome {
+      background: linear-gradient(90deg, #e66465 0%, #9198e5 100%);
+      color: #fff;
+      text-align: center;
+      font-size: 1.1em;
+      padding: 8px 0 8px 0;
+      letter-spacing: 1px;
+    }
+    .lottery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      justify-content: center;
+      padding: 24px 0 36px 0;
+      max-width: 900px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    .lottery-card {
+      background: #232946;
+      color: #fff;
+      border-radius: 16px;
+      min-width: 0;
+      width: 100%;
+      min-height: 110px;
+      box-shadow: 0 4px 18px rgba(30,60,120,0.13);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 0;
+      text-decoration: none;
+      transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
+      overflow: hidden;
+      cursor: pointer;
+      border: none;
+      margin: 0;
+    }
+    .lottery-card:hover, .lottery-card:active {
+      box-shadow: 0 10px 32px rgba(37,99,235,0.22);
+      transform: translateY(-2px) scale(1.025);
+    }
+    .card-top {
+      width: 100%;
+      background: #232946;
+      padding: 22px 16px 10px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      min-height: 70px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .card-bottom {
+      width: 100%;
+      background: #fff;
+      color: #232946;
+      font-size: 1.13em;
+      font-weight: 700;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      padding: 13px 0 10px 0;
+      text-align: center;
+      letter-spacing: 1.2px;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.07);
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 0.82em;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 7px;
+      box-shadow: 0 1px 4px rgba(37,99,235,0.10);
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+    .new-ribbon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #ef233c;
+      color: #fff;
+      font-size: 0.92em;
+      font-weight: bold;
+      padding: 3px 18px 3px 10px;
+      border-radius: 0 0 14px 0;
+      z-index: 2;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(239,35,60,0.10);
+    }
+    .lottery-title {
+      font-size: 1.08em;
+      font-weight: 700;
+      margin-bottom: 6px;
+      margin-top: 18px;
+      letter-spacing: 1.1px;
+      width: 100%;
+      text-align: left;
+      text-shadow: 0 2px 8px rgba(30,60,120,0.10);
+      word-break: break-word;
+      white-space: normal;
+      line-height: 1.25;
+      min-height: 2.5em;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .lottery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .lottery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 12px 12px 18px 12px;
+      }
+      .lottery-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100vw;
+        min-height: 100px;
+        border-radius: 14px;
+        margin: 0 auto;
+      }
+      .badge {
+        font-size: 0.75em;
+        padding: 2px 8px;
+        border-radius: 6px;
+        top: 8px;
+        right: 10px;
+      }
+      .new-ribbon {
+        font-size: 0.85em;
+        padding: 2px 10px 2px 7px;
+        border-radius: 0 0 8px 0;
+      }
+      .lottery-title {
+        font-size: 0.97em;
+        margin-top: 16px;
+        min-height: 2.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Kerala Lottery Results</div>
+  <div class="welcome">welcome</div>
+  <div class="lottery-grid" id="lottery-grid">
+    <!-- Lottery cards will be generated here by JavaScript -->
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('lottery-grid');
+      if (!grid) return;
+
+      const schedule = [
+        { dayOfWeek: 0, name: 'SAMRUDHI', shortName: 'SM', baseNumber: 9, baseDate: '2025-06-29' },
+        { dayOfWeek: 1, name: 'BHAGYATHARA', shortName: 'BT', baseNumber: 8, baseDate: '2025-06-23' },
+        { dayOfWeek: 2, name: 'STHREE-SAKTHI', shortName: 'SS', baseNumber: 473, baseDate: '2025-06-24' },
+        { dayOfWeek: 3, name: 'DHANALEKSHMI', shortName: 'DL', baseNumber: 7, baseDate: '2025-06-25' },
+        { dayOfWeek: 4, name: 'KARUNYA PLUS', shortName: 'KN', baseNumber: 578, baseDate: '2025-06-26' },
+        { dayOfWeek: 5, name: 'SUVARNA KERALAM', shortName: 'SK', baseNumber: 9, baseDate: '2025-06-27' },
+        { dayOfWeek: 6, name: 'KARUNYA', shortName: 'KR', baseNumber: 712, baseDate: '2025-06-28' }
+      ];
+
+      // Determine the current date in Indian Standard Time (IST)
+      const now = new Date();
+      // Get the current time in IST by adding the offset (5.5 hours)
+      const istTime = new Date(now.getTime() + (330 * 60 * 1000));
+      // Create a 'today' object representing the start of the day in IST.
+      // We use UTC methods on the IST time to get the correct date components.
+      const today = new Date(Date.UTC(istTime.getUTCFullYear(), istTime.getUTCMonth(), istTime.getUTCDate()));
+      
+      const todayStr = today.toISOString().split('T')[0];
+
+      for (let i = 0; i < 14; i++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - i);
+
+        const dayOfWeek = date.getDay();
+        const lottery = schedule.find(l => l.dayOfWeek === dayOfWeek);
+
+        if (lottery) {
+          const baseDate = new Date(lottery.baseDate);
+          const daysDifference = (date - baseDate) / (1000 * 60 * 60 * 24);
+          const weeksPassed = Math.floor(daysDifference / 7);
+          const currentNumber = lottery.baseNumber + weeksPassed;
+
+          const yyyy = date.getFullYear();
+          const mm = String(date.getMonth() + 1).padStart(2, '0');
+          const dd = String(date.getDate()).padStart(2, '0');
+          const cardDateStr = `${dd}/${mm}/${yyyy}`;
+          const dataDateStr = `${yyyy}-${mm}-${dd}`;
+
+          const isNew = (dataDateStr === todayStr);
+          const link = `${lottery.shortName}-${currentNumber}-${dataDateStr}.html`;
+
+          const cardHtml = `
+            <a class="lottery-card" href="${link}">
+                <div class="card-top">
+                    ${isNew ? `<span class="new-ribbon">NEW</span>` : ''}
+                    <span class="badge">${lottery.shortName}-${currentNumber}</span>
+                    <div class="lottery-title">${lottery.name}</div>
+                </div>
+                <div class="card-bottom">${cardDateStr}</div>
+            </a>
+          `;
+          grid.innerHTML += cardHtml;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
