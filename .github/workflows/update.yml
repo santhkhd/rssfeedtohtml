@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: npm install rss-parser
 
-      - name: Generate index.html from RSS
-        run: node rssfeedtohtml/generate.js
+      - name: Generate index.html and detail pages from RSS
+        run: node generate.js
 
       - name: Commit and push changes
         run: |
