@@ -1,0 +1,18 @@
+[
+  {
+    "index": 1,
+    "title": "Kalidas",
+    "year": "1931",
+    "rating": "7.0",
+    "image": "https://m.media-amazon.com/images/M/MV5BNDk2ZTU4ZjEtNDQ4MC00MTg4LWFjZGMtMWQ5ZmE5MGQ4YzAzXkEyXkFqcGc@._V1_QL75_UX90_CR0,9,90,133_.jpg",
+    "cast": ["Actor A", "Actor B", "Actor C"]
+  },
+  {
+    "index": 2,
+    "title": "Ramayanam",
+    "year": "1932",
+    "rating": null,
+    "image": null,
+    "cast": ["Actor D", "Actor E"]
+  }
+]

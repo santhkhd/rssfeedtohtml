@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Movies Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Tamil<span>Cinema</span></h1>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search movies...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-tabs">
+                <li class="tab active" data-category="popular">Popular</li>
+                <li class="tab" data-category="year">By Year</li>
+                <li class="tab" data-category="rating">By Rating</li>
+                <li class="tab" data-category="atoz">A-Z</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="category-header">
+                <div>
+                    <h2 id="categoryTitle">Popular Movies</h2>
+                    <p id="movieCount" class="movie-count">Total Movies: 0</p>
+                </div>
+                <div class="sort-options">
+                    <select id="sortSelect">
+                        <option value="desc">Newest First</option>
+                        <option value="asc">Oldest First</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-section" id="yearFilterSection" style="display: none; margin-bottom: 20px;">
+                <label for="yearFilter">Filter by Year:</label>
+                <select id="yearFilter">
+                    <option value="all">All Years</option>
+                    <!-- Year options will be populated dynamically -->
+                </select>
+            </div>
+            <div class="filter-section" id="actorFilterSection" style="display: none; margin-bottom: 20px;">
+                <label for="actorFilter">Filter by Actor:</label>
+                <select id="actorFilter">
+                    <option value="all">All Actors</option>
+                    <!-- Actor options will be populated dynamically -->
+                </select>
+            </div>
+            <div class="movies-grid" id="moviesContainer">
+                <!-- Movies will be loaded here dynamically -->
+            </div>
+            <!-- Pagination Controls -->
+            <div class="pagination" id="paginationContainer">
+                <!-- Pagination will be loaded here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="container">
+            <ul class="nav-tabs-bottom">
+                <li class="tab-bottom active" data-category="popular">
+                    <i class="fas fa-fire"></i>
+                    <span>Popular</span>
+                </li>
+                <li class="tab-bottom" data-category="year">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>By Year</span>
+                </li>
+                <li class="tab-bottom" data-category="rating">
+                    <i class="fas fa-star"></i>
+                    <span>By Rating</span>
+                </li>
+                <li class="tab-bottom" data-category="atoz">
+                    <i class="fas fa-sort-alpha-down"></i>
+                    <span>A-Z</span>
+                </li>
+                <li class="tab-bottom" data-category="favorites">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                    <span class="favorite-count" id="favoriteCount">0</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Tamil Cinema Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

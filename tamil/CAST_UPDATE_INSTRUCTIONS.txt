@@ -1,0 +1,39 @@
+INSTRUCTIONS TO UPDATE CAST INFORMATION
+=====================================
+
+1. GET AN API KEY:
+   - Visit http://www.omdbapi.com/
+   - Click on "GET YOUR FREE API KEY TODAY"
+   - Register for a free account
+   - You will receive an API key via email
+
+2. UPDATE THE PYTHON SCRIPT:
+   - Open "update_cast_sample.py" in a text editor
+   - Find the line: api_key = "YOUR_API_KEY"
+   - Replace "YOUR_API_KEY" with your actual API key
+   - Save the file
+
+3. INSTALL REQUIRED PYTHON LIBRARIES:
+   - Open Command Prompt or Terminal
+   - Run: pip install requests
+
+4. RUN THE SCRIPT:
+   - Open Command Prompt or Terminal
+   - Navigate to the folder containing the script:
+     cd "c:\Users\santh\OneDrive\Desktop\all tiamil"
+   - Run the script:
+     python update_cast_sample.py
+
+5. WHAT THE SCRIPT DOES:
+   - Reads your "imdb_tamil_movies_full.json" file
+   - For each movie, fetches cast information from OMDB API
+   - Creates a new file "imdb_tamil_movies_with_cast.json" with the updated data
+   - Preserves existing data and adds cast information
+
+6. AFTER RUNNING THE SCRIPT:
+   - Replace your original "imdb_tamil_movies_full.json" with the new file
+   - Or rename "imdb_tamil_movies_with_cast.json" to "imdb_tamil_movies_full.json"
+   - Refresh your web application to see the cast information
+
+NOTE: The script includes a 1-second delay between requests to avoid overwhelming the API.
+You can adjust this by changing the "delay" parameter in the update_movies_with_cast function.
