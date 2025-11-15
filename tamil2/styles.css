@@ -1,0 +1,131 @@
+/* Dark mode toggle animation */
+#darkModeToggle {
+    transition: background-color 0.3s ease;
+}
+
+/* Movie card styling */
+.movie-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode movie card */
+.dark .movie-card:hover {
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Rating badge */
+.rating-badge {
+    background-color: #f59e0b;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Favorite button */
+.favorite-btn {
+    transition: all 0.2s ease;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+    color: #ef4444;
+}
+
+/* Genre chips */
+.genre-chip.active {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Skeleton loading animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Toast notification */
+#toast.show {
+    transform: translate(0, 0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .movie-card {
+        max-width: 100%;
+    }
+}
+
+/* Detail page styles */
+.movie-banner {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Cast chips */
+.cast-chip {
+    background-color: #f3f4f6;
+    color: #374151;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 4px;
+    display: inline-block;
+}
+
+.dark .cast-chip {
+    background-color: #374151;
+    color: #f3f4f6;
+}
+
+/* Streaming icons */
+.streaming-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    transition: transform 0.2s ease;
+}
+
+.streaming-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Back button */
+.back-btn {
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* About page styling */
+.feature-card {
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}

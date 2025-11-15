@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Tamil Movie Directory</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-film text-red-600 text-2xl"></i>
+            <h1 class="text-xl font-bold">Tamil Movie Directory</h1>
+        </div>
+        
+        <div class="flex items-center space-x-6">
+            <a href="index.html" class="font-medium hover:text-red-600 transition-colors">Home</a>
+            <a href="favorites.html" class="font-medium hover:text-red-600 transition-colors">Favorites</a>
+            <a href="about.html" class="font-medium hover:text-red-600 transition-colors">About</a>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold mb-8 text-center">About Tamil Movie Directory</h1>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                <p class="text-lg mb-6">
+                    Tamil Movie Directory is a modern web application designed to showcase Tamil cinema with a clean, 
+                    user-friendly interface. Our goal is to provide movie enthusiasts with an elegant platform to 
+                    discover, explore, and organize their favorite Tamil films.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="feature-card bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-film text-red-600 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Comprehensive Database</h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Access detailed information about Tamil movies including cast, crew, ratings, and more.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-heart text-red-600 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Personal Favorites</h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Save your favorite movies and access them anytime with local storage persistence.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-search text-red-600 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Smart Search</h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Find movies quickly with our powerful search and filtering capabilities.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-moon text-red-600 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Dark Mode</h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Enjoy comfortable viewing day or night with our elegant dark mode toggle.
+                        </p>
+                    </div>
+                </div>
+                
+                <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+                <ul class="list-disc pl-6 space-y-2 mb-6">
+                    <li>Responsive grid layout with beautiful movie cards</li>
+                    <li>Multiple sorting options (Year, Rating, Alphabetical)</li>
+                    <li>Genre-based filtering</li>
+                    <li>Detailed movie pages with comprehensive information</li>
+                    <li>Trailer viewing through YouTube integration</li>
+                    <li>Streaming availability information</li>
+                    <li>Share functionality for your favorite movies</li>
+                    <li>Favorites management with local storage</li>
+                    <li>Dark/light mode toggle</li>
+                    <li>Smooth animations and transitions</li>
+                    <li>Mobile-first responsive design</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold mb-4">Technology Stack</h2>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">HTML5</span>
+                    <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">CSS3</span>
+                    <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">JavaScript</span>
+                    <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">Tailwind CSS</span>
+                    <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">Font Awesome</span>
+                    <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">LocalStorage</span>
+                </div>
+                
+                <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                    <h2 class="text-2xl font-bold mb-4">About the Developer</h2>
+                    <p class="mb-4">
+                        This application was built with passion for Tamil cinema and modern web development practices. 
+                        It showcases the rich heritage of Tamil movies with a contemporary user interface.
+                    </p>
+                    <p>
+                        For feedback, suggestions, or contributions, please reach out to us. We're constantly working 
+                        to improve the experience and add more features to enhance your movie discovery journey.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="index.html" class="inline-block px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="about.js"></script>
+</body>
+</html>

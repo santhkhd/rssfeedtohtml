@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - Tamil Movie Directory</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-film text-red-600 text-2xl"></i>
+            <h1 class="text-xl font-bold">Tamil Movie Directory</h1>
+        </div>
+        
+        <div class="flex items-center space-x-6">
+            <a href="index.html" class="font-medium hover:text-red-600 transition-colors">Home</a>
+            <a href="favorites.html" class="font-medium hover:text-red-600 transition-colors">Favorites</a>
+            <a href="about.html" class="font-medium hover:text-red-600 transition-colors">About</a>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <div class="container mx-auto px-4 py-6">
+        <button id="backBtn" class="back-btn flex items-center text-red-600 hover:text-red-800 font-medium mb-6">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+        </button>
+    </div>
+
+    <!-- Movie Detail Content -->
+    <main class="container mx-auto px-4 pb-12">
+        <!-- Movie Banner -->
+        <div id="movieBanner" class="movie-banner rounded-xl shadow-lg mb-8 relative">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-xl"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full">
+                <div class="flex flex-col md:flex-row items-start md:items-end gap-6">
+                    <div id="posterContainer" class="bg-gray-300 dark:bg-gray-700 rounded-lg shadow-lg w-48 h-64 flex-shrink-0"></div>
+                    <div class="text-white">
+                        <h1 id="movieTitle" class="text-3xl md:text-4xl font-bold mb-2">Loading...</h1>
+                        <div class="flex flex-wrap items-center gap-4 mb-4">
+                            <span id="movieYear" class="text-xl"></span>
+                            <div id="movieRating" class="flex items-center bg-yellow-600 px-3 py-1 rounded-full">
+                                <i class="fas fa-star mr-1"></i>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span id="movieGenre" class="bg-red-600 px-3 py-1 rounded-full"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie Info Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Main Info -->
+            <div class="lg:col-span-2">
+                <!-- Plot Section -->
+                <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Plot</h2>
+                    <p id="moviePlot" class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Loading movie plot...
+                    </p>
+                </section>
+
+                <!-- Cast Section -->
+                <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Cast</h2>
+                    <div id="castContainer" class="flex flex-wrap">
+                        <div class="cast-chip">Loading cast...</div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column - Metadata -->
+            <div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sticky top-24">
+                    <h2 class="text-2xl font-bold mb-4">Movie Details</h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold text-gray-600 dark:text-gray-400">Director</h3>
+                            <p id="movieDirector" class="text-lg">Loading...</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-gray-600 dark:text-gray-400">Writer</h3>
+                            <p id="movieWriter" class="text-lg">Loading...</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-gray-600 dark:text-gray-400">Release Date</h3>
+                            <p id="movieRelease" class="text-lg">Loading...</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-gray-600 dark:text-gray-400">Runtime</h3>
+                            <p id="movieRuntime" class="text-lg">Loading...</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-gray-600 dark:text-gray-400">Awards</h3>
+                            <p id="movieAwards" class="text-lg">Loading...</p>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="mt-8 space-y-4">
+                        <button id="favoriteBtn" class="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
+                            <i class="far fa-heart"></i>
+                            <span>Add to Favorites</span>
+                        </button>
+                        
+                        <button id="trailerBtn" class="w-full flex items-center justify-center gap-2 bg-gray-800 hover:bg-black text-white font-medium py-3 px-4 rounded-lg transition-colors dark:bg-gray-700 dark:hover:bg-gray-600">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Watch Trailer</span>
+                        </button>
+                        
+                        <button id="shareBtn" class="w-full flex items-center justify-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-lg transition-colors dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Share</span>
+                        </button>
+                    </div>
+
+                    <!-- Streaming Availability -->
+                    <div class="mt-8">
+                        <h3 class="font-semibold text-gray-600 dark:text-gray-400 mb-3">Available on</h3>
+                        <div id="streamingContainer" class="flex flex-wrap gap-3">
+                            <div class="streaming-icon bg-red-100 text-red-600">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300">
+        Notification message
+    </div>
+
+    <script src="movie.js"></script>
+</body>
+</html>
